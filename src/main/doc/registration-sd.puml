@@ -1,0 +1,3 @@
+@startuml
+jboss -> RegistrationServlelt: doPost
+@enduml

@@ -1,0 +1,20 @@
+table{
+  float: left;
+  margin-right: 1em;
+  width: 5em;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+thead{
+  background-color: orange;
+}
+
+tbody tr td:first-child{
+  background-color: gold;
+}
+
+label{
+  width: 5em;
+  float: left;
+}
