@@ -15,6 +15,7 @@ public class Student {
   private Date registrationDate;
   private List<Event> registeredEvents = new ArrayList<>();
   private boolean active;
+  private String name;
 
   public Student(String email) {
     this.email = email;
@@ -78,5 +79,13 @@ public class Student {
 
   public void setLanguage(String language) {
     this.language = language;
+  }
+
+  public String getName() {
+    return fullname;
+  }
+
+  public String getPassword() {
+    return password;
   }
 }

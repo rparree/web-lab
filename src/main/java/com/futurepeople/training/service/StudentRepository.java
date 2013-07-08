@@ -38,6 +38,21 @@ public class StudentRepository {
   }
 
   public void insert(Student student) {
+     String sql = "INSERT INTO Student " +
+           "(name,email,password) VALUES (?,?,?)";
+    try (Connection connection = dataSource.getConnection();
+         PreparedStatement stm = connection.prepareStatement(sql)
+
+    ) {
+      stm.setString(1, student.getName());
+      stm.setString(2, student.getEmail());
+      stm.setString(3, student.getPassword());
+      stm.executeUpdate();
+    } catch (SQLException e) {
+      throw new RuntimeException(e);
+
+    }
+
 
   }
 }
