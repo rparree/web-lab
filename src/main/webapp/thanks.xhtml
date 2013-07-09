@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: rparree
+  Date: 7/9/13
+  Time: 2:44 PM
+-->
+<!DOCTYPE html
+      PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+  <title>Registration Confirmation</title>
+</h:head>
+
+<h:body>
+    <p>Thanks
+        <h:outputText value="#{registrationController.fullname}"/>
+        , we have sent an email to
+        <h:outputText value="#{registrationController.email}"/>
+    </p>
+</h:body>
+
+</html>
