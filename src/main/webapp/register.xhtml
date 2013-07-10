@@ -19,16 +19,19 @@
 
 <h:body>
   <h:form id="registrationForm">
-      <h:panelGrid columns="2">
+      <h:panelGrid columns="3">
           <h:outputLabel for="email" value="email"/>
-          <h:inputText id="email" value="#{registrationController.email}"/>
+          <h:inputText id="email" required="true" requiredMessage="you must supply your email address" value="#{registrationController.email}"/>
+          <h:message styleClass="error" for="email"/>
 
 
           <h:outputLabel for="fullname" value="fullname"/>
-          <h:inputText id="fullname" value="#{registrationController.fullname}"/>
+          <h:inputText id="fullname"  required="true" requiredMessage="you must supply your fullname"  value="#{registrationController.fullname}"/>
+          <h:message styleClass="error"  for="fullname"/>
 
           <h:outputLabel for="password" value="password"/>
-          <h:inputSecret id="password" value="#{registrationController.password}"/>
+          <h:inputSecret id="password" required="true" requiredMessage="a password is required" value="#{registrationController.password}"/>
+          <h:message styleClass="error"  for="password"/>
           <h:panelGroup>
               <h:commandButton value="register" action="#{registrationController.register}"/>
           </h:panelGroup>

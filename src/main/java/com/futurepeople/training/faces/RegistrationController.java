@@ -4,6 +4,8 @@ import com.futurepeople.training.service.RegistrationException;
 import com.futurepeople.training.service.StudentManagement;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -22,12 +24,15 @@ public class RegistrationController {
   @Inject
   private StudentManagement management;
 
-  public String register(){
+  public String register() {
     try {
       management.registerNewStudent(email, fullname, password);
       return "thanks";
     } catch (RegistrationException e) {
-       throw new RuntimeException(e);
+      FacesMessage msg = new FacesMessage("email address already registered");
+      FacesContext context = FacesContext.getCurrentInstance();
+      context.addMessage("registrationForm:email", msg);
+      return null;
     }
   }
 
@@ -56,6 +61,3 @@ public class RegistrationController {
   }
 }
 
-/*FacesContext context = FacesContext.getCurrentInstance();
-FacesMessage msg = new FacesMessage("email address already registered");
-context.addMessage("registrationForm:email", msg);*/
