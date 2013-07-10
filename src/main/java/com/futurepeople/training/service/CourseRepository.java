@@ -3,6 +3,7 @@ package com.futurepeople.training.service;
 import com.futurepeople.training.domain.Course;
 
 import javax.annotation.Resource;
+import javax.inject.Singleton;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.LinkedList;
@@ -12,6 +13,7 @@ import java.util.List;
  * todo
  */
 
+@Singleton
 public class CourseRepository {
 
   @Resource(lookup = "java:/TrainingDS")

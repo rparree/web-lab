@@ -3,6 +3,7 @@ package com.futurepeople.training.service;
 import com.futurepeople.training.domain.Student;
 
 import javax.annotation.Resource;
+import javax.inject.Singleton;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
  * todo
  */
 
+@Singleton
 public class StudentRepository {
 
   @Resource(lookup = "java:/TrainingDS")
