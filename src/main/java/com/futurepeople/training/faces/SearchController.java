@@ -24,7 +24,7 @@ public class SearchController {
 
   public String search(){
     results  = management.findCourse(searchString);
-    return "results.xhtml";
+    return "results";
   }
 
   public List<Course> getResults() {
