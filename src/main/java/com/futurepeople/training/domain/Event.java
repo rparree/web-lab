@@ -21,4 +21,8 @@ public abstract class Event {
   public String getTitle() {
     return title;
   }
+
+  public Date getStartDate() {
+    return startDate;
+  }
 }

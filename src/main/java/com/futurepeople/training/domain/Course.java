@@ -22,4 +22,8 @@ public class Course extends Event{
     int pricePerDay = 1;
     return duration * pricePerDay;
   }
+
+  public int getDuration() {
+    return duration;
+  }
 }
