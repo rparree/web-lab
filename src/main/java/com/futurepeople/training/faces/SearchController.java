@@ -22,13 +22,8 @@ public class SearchController {
   private List<Course> results;
 
 
-  public String search(){
-    results  = management.findCourse(searchString);
-    return "results";
-  }
-
   public List<Course> getResults() {
-    return results;
+    return management.findCourse(searchString);
   }
 
   public String getSearchString() {

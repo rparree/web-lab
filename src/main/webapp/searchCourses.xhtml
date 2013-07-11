@@ -6,21 +6,49 @@
   Time: 2:07 PM
 -->
 <!DOCTYPE html
-      PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-  <title>Search courses</title>
+    <link rel="stylesheet" type="text/css" href="styles/training.css"/>
+    <title>Search courses</title>
 </h:head>
 
 <h:body>
-  <h:form>
-      <h:inputText value="#{searchController.searchString}"/>
-      <h:commandButton value="search" action="#{searchController.search}"/>
-  </h:form>
+    <h:form id="searchForm">
+        <h:outputLabel for="searchString" value="search:"/>
+        <h:inputText id="searchString" value="#{searchController.searchString}">
+            <f:ajax event="keyup" execute="searchString" render=":resultTable"/>
+        </h:inputText>
+    </h:form>
+
+    <h:panelGroup id="resultTable">
+
+        <h:dataTable rendered="#{not empty searchController.results}"
+                     value="#{searchController.results}" var="course"
+                     headerClass="result-table-head"
+                     styleClass="result-table"
+                     columnClasses="column-left,column-centered,column-centered"
+
+                >
+            <h:column>
+                <f:facet name="header">Title</f:facet>
+                <h:outputText value="#{course.title}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Start Date</f:facet>
+                <h:outputText value="#{course.startDate}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Duration</f:facet>
+                <h:outputText value="#{course.duration}"/>
+            </h:column>
+        </h:dataTable>
+    </h:panelGroup>
 </h:body>
 
 </html>
