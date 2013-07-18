@@ -3,7 +3,7 @@ package com.futurepeople.training.service;
 import com.futurepeople.training.domain.Student;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
+import javax.ejb.Singleton;
 
 /**
  * todo

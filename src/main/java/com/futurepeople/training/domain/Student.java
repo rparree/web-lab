@@ -1,9 +1,17 @@
 package com.futurepeople.training.domain;
 
-import java.util.*;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 
+@Entity
 public class Student {
+
+  @Id
+  @GeneratedValue
+  private Long id;
 
   private int tokens = 10;
   private String email;
@@ -13,9 +21,14 @@ public class Student {
 
 
   private Date registrationDate;
+  @Transient
   private List<Event> registeredEvents = new ArrayList<>();
   private boolean active;
   private String name;
+
+  protected Student(){
+
+  }
 
   public Student(String email) {
     this.email = email;
