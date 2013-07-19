@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 @Singleton
-public class CourseRepository {
+public class CourseRepositoryJDBC {
 
   @Resource(lookup = "java:/TrainingDS")
   DataSource dataSource;

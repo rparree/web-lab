@@ -14,7 +14,7 @@ import java.util.List;
 public class CourseManagement {
 
   @Inject
-  CourseRepository repository;
+  CourseRepositoryJDBC repository;
 
   public List<Course> findCourse(String searchString) {
    return repository.findCourse(searchString);

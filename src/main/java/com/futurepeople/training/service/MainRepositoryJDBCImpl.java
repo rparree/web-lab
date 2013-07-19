@@ -1,5 +1,6 @@
 package com.futurepeople.training.service;
 
+import com.futurepeople.training.domain.Event;
 import com.futurepeople.training.domain.Student;
 
 import javax.annotation.Resource;
@@ -17,7 +18,7 @@ import java.sql.SQLException;
 
 @Alternative
 @Singleton
-public class StudentRepositoryJDBCImpl implements StudentRepository {
+public class MainRepositoryJDBCImpl implements MainRepository {
 
   @Resource(lookup = "java:/TrainingDS")
   DataSource dataSource;
@@ -60,5 +61,15 @@ public class StudentRepositoryJDBCImpl implements StudentRepository {
     }
 
 
+  }
+
+  @Override
+  public Student getStudent(long studentId) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Override
+  public Event getEvent(long eventId) {
+    return null;
   }
 }

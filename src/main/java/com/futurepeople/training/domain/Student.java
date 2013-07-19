@@ -21,7 +21,7 @@ public class Student {
 
 
   private Date registrationDate;
-  @Transient
+  @ManyToMany
   private List<Event> registeredEvents = new ArrayList<>();
   private boolean active;
   private String name;

@@ -1,9 +1,12 @@
 package com.futurepeople.training.service;
 
+import com.futurepeople.training.domain.Event;
+import com.futurepeople.training.domain.InactiveMembershipException;
+import com.futurepeople.training.domain.InsufficientTokensException;
 import com.futurepeople.training.domain.Student;
 
-import javax.inject.Inject;
 import javax.ejb.Singleton;
+import javax.inject.Inject;
 
 /**
  * todo
@@ -13,13 +16,14 @@ import javax.ejb.Singleton;
 public class StudentManagement {
 
   @Inject
-  StudentRepository repository;
+  MainRepository mainRepository;
+
 
   public void registerNewStudent(String email, String fullname, String password) throws RegistrationException {
 
 
     // todo check if email already registered
-    if (repository.isRegistered(email))
+    if (mainRepository.isRegistered(email))
       throw new RegistrationException("email address already in use.");
 
     // todo create a new student
@@ -30,9 +34,19 @@ public class StudentManagement {
 
 
     // todo insert student into database (fake for now)
-    repository.insert(student);
+    mainRepository.insert(student);
 
     // todo send email
     System.out.append("Mock sending email to ").println(email);
+  }
+
+
+  public void registerStudentOnEvent(long studentId, long eventId) throws InactiveMembershipException, InsufficientTokensException {
+    Student student = mainRepository.getStudent(studentId);
+
+    Event event = mainRepository.getEvent(eventId);
+
+    student.register(event);
+
   }
 }

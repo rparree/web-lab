@@ -31,7 +31,7 @@ public class CourseRepositoryIntegrationTest {
 
 
   @Inject
-  CourseRepository repository;
+  CourseRepositoryJDBC repository;
 
   @Resource(lookup = "java:/TrainingDS")
   DataSource dataSource;
@@ -42,7 +42,7 @@ public class CourseRepositoryIntegrationTest {
   public static JavaArchive createDeployment() {
     JavaArchive archive = ShrinkWrap.create(JavaArchive.class, "test.jar")
           .addPackage("com.futurepeople.training.domain")
-          .addClass(CourseRepository.class)
+          .addClass(CourseRepositoryJDBC.class)
           .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     return archive;
   }
